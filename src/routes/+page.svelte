@@ -1,23 +1,13 @@
 <script lang="ts">
-	import Carousel from 'svelte-carousel';
 	import { browser } from '$app/environment';
+	import UpComingMovies from '$lib/components/pages/Home/UpComingMovies.svelte';
 
 	let carousel; // for calling methods of the carousel instance
+	export let data;
+	let upComingMovies = data.upcomingMovies;
+	let genres = data.genres;
 </script>
 
 {#if browser}
-	<Carousel bind:this={carousel}>
-		<div class="hero min-h-screen">
-			<div class="hero-content text-center">
-				<div class="max-w-md">
-					<h1 class="text-5xl font-bold">Hello there</h1>
-					<p class="py-6">
-						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
-						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
-					</p>
-					<button class="btn btn-primary">Get Started</button>
-				</div>
-			</div>
-		</div>
-	</Carousel>
+	<UpComingMovies {upComingMovies} {genres} />
 {/if}

@@ -1,1 +1,1 @@
-<main class="container mx-auto w-full"><slot /></main>
+<main class=" w-full"><slot /></main>

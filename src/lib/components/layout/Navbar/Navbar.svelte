@@ -5,7 +5,9 @@
 	import SearchInput from './SearchInput.svelte';
 </script>
 
-<header class="w-full border-b border-opacity-30 border-primary bg-base-300 fixed top-0 z-50">
+<header
+	class="w-full border-b border-opacity-60 border-primary bg-base-300 fixed top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10"
+>
 	<div class="navbar container mx-auto">
 		<div class="navbar-start gap-2">
 			<DropDownMenu />
