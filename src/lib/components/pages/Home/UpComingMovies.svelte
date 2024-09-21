@@ -1,12 +1,14 @@
-<script>
+<script lang="ts">
+	import type { Genre } from '$lib/components/interfaces/genres.interface';
+	import type { UpComingMovie } from '$lib/components/interfaces/upComingMovie.interface';
 	import Carousel from 'svelte-carousel';
 
-	export let upComingMovies;
-	export let genres;
+	export let upComingMovies: UpComingMovie[];
+	export let genres: Genre[];
 
 	let carousel;
 
-	function getGenresForMovie(movie, genres) {
+	function getGenresForMovie(movie: UpComingMovie, genres: Genre[]) {
 		const genreNames = genres
 			.filter((genre) => movie.genre_ids.includes(genre.id))
 			.map((genre) => genre.name);
