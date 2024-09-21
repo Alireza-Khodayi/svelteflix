@@ -1,7 +1,23 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+<script lang="ts">
+	import Carousel from 'svelte-carousel';
+	import { browser } from '$app/environment';
 
-<style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.gray.100);
-	}
-</style>
+	let carousel; // for calling methods of the carousel instance
+</script>
+
+{#if browser}
+	<Carousel bind:this={carousel}>
+		<div class="hero min-h-screen">
+			<div class="hero-content text-center">
+				<div class="max-w-md">
+					<h1 class="text-5xl font-bold">Hello there</h1>
+					<p class="py-6">
+						Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+						exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.
+					</p>
+					<button class="btn btn-primary">Get Started</button>
+				</div>
+			</div>
+		</div>
+	</Carousel>
+{/if}
