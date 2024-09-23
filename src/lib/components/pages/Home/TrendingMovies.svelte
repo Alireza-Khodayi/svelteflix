@@ -1,5 +1,6 @@
 <script>
 	import { getGenresForMovie } from '$lib/utils/generate-genre-names';
+	// @ts-ignore
 	import Carousel from 'svelte-carousel';
 
 	export let trending;
@@ -12,7 +13,16 @@
 <svelte:window bind:innerWidth />
 <div class="container mx-auto w-full py-10 px-4 cursor-pointer">
 	<h3 class="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl mb-5">Trending Movies</h3>
-	<Carousel {particlesToShow} particlesToScroll={1} autoplay autoplayDuration={3000} dots={false}>
+	<Carousel
+		autoplayDuration={0}
+		duration={3000}
+		autoplay
+		timingFunction="ease-in-out"
+		dots={false}
+		arrows={false}
+		pauseOnFocus={true}
+		{particlesToShow}
+	>
 		{#each trending as Movie, index}
 			<div class="px-2 relative rounded-lg">
 				<div class="absolute z-40 bottom-0 mx-4 mb-2">
