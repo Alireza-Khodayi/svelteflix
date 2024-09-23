@@ -1,27 +1,20 @@
 <script lang="ts">
 	import type { Genre } from '$lib/components/interfaces/genres.interface';
 	import type { UpComingMovie } from '$lib/components/interfaces/upComingMovie.interface';
+	import { getGenresForMovie } from '$lib/utils/generate-genre-names';
 	import Carousel from 'svelte-carousel';
 
 	export let upComingMovies: UpComingMovie[];
 	export let genres: Genre[];
 
 	let carousel;
-
-	function getGenresForMovie(movie: UpComingMovie, genres: Genre[]) {
-		const genreNames = genres
-			.filter((genre) => movie.genre_ids.includes(genre.id))
-			.map((genre) => genre.name);
-
-		return genreNames.join(', ');
-	}
 </script>
 
 <div class="w-full flex justify-center items-center gap-8">
 	<div class="relative w-full">
-		<Carousel bind:this={carousel} autoplay autoplayDuration={4000} dots={false} arrows={false}>
+		<Carousel bind:this={carousel} autoplay autoplayDuration={5000} dots={false} arrows={false}>
 			{#each upComingMovies as Movie}
-				<div class="relative w-full h-screen cursor-pointer">
+				<div class="relative w-full h-screen cursor-pointer container mx-auto">
 					<img
 						class="h-full sm:h-auto w-full object-cover blur-[1px]"
 						src={`https://image.tmdb.org/t/p/original${Movie.backdrop_path}`}
@@ -29,19 +22,19 @@
 					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
 					<div
-						class="absolute sm:bottom-[6rem] md:bottom-[10rem] bottom-0 left-0 md:left-10 sm:flex gap-4 items-end p-5 md:rounded-lg border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 bg-base-300"
+						class="max-w-[850px] absolute container mx-auto sm:bottom-[6rem] md:bottom-[10rem] bottom-0 left-0 xl:left-96 sm:flex gap-4 items-end p-5 md:rounded-lg border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 bg-base-300"
 					>
 						<img
 							src={`https://image.tmdb.org/t/p/w780${Movie.poster_path}`}
 							alt={`${Movie.title} Poster`}
 							class="md:w-[250px] sm:w-[250px] w-[150px] opacity-80 rounded-lg transition-transform duration-500 hover:-rotate-1 hover:scale-105"
 						/>
-						<div class="flex flex-col gap-2">
+						<div class="flex flex-col gap-2 container mx-auto">
 							<h3 class="font-bold lg:text-4xl md:text-3xl sm:text-2xl text-xl max-w-[450px]">
 								{Movie.title}
 							</h3>
 							<p
-								class="lg:text-xl md:text-l line-clamp-3 overflow-hidden max-w-[450px] text-zinc-400"
+								class="lg:text-xl md:text-l line-clamp-3 overflow-hidden max-w-[750px] text-zinc-400"
 							>
 								{Movie.overview}
 							</p>
@@ -95,7 +88,7 @@
 
 									<span class="text-sm">{getGenresForMovie(Movie, genres)}</span>
 								</div>
-								<div class="text-right">
+								<div class="text-right px-4">
 									<button class="btn btn-xs sm:btn-sm md:btn-md btn-primary w-36"
 										>Show details...</button
 									>
