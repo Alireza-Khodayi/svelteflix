@@ -20,10 +20,17 @@
 
 <div class="w-full flex justify-center items-center gap-8">
 	<div class="relative w-full">
-		<Carousel bind:this={carousel} autoplay autoplayDuration={5000} dots={false}>
+		<Carousel
+			bind:this={carousel}
+			autoplay
+			duration={700}
+			autoplayDuration={4000}
+			timingFunction="ease-in-out"
+			dots={false}
+		>
 			<button
 				slot="prev"
-				class="custom-arrow custom-arrow-prev rounded-r-xl absolute top-1/4 md:top-2/3 lg:top-3/4 left-0 z-40 p-2 lg:p-3 cursor-pointer border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 hover:bg-opacity-50 bg-base-300"
+				class="custom-arrow custom-arrow-prev rounded-r-xl absolute top-2/4 md:top-2/3 lg:top-3/4 left-0 z-40 p-2 lg:p-3 cursor-pointer border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 hover:bg-opacity-50 bg-base-300"
 				on:click={handlePrev}
 			>
 				<svg
@@ -126,7 +133,7 @@
 			{/each}
 			<button
 				slot="next"
-				class="custom-arrow custom-arrow-next rounded-l-xl absolute top-1/4 md:top-2/3 lg:top-3/4 z-40 right-0 p-2 lg:p-3 cursor-pointer border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 hover:bg-opacity-50 bg-base-300"
+				class="custom-arrow custom-arrow-next rounded-l-xl absolute top-2/4 md:top-2/3 lg:top-3/4 z-40 right-0 p-2 lg:p-3 cursor-pointer border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 hover:bg-opacity-50 bg-base-300"
 				on:click={handleNext}
 			>
 				<svg

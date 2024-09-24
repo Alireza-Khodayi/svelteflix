@@ -5,7 +5,8 @@ export const load: PageServerLoad = async function ({ fetch, locals }) {
 	const upcomingMovies = await getAllUpComingMovies(fetch, locals);
 	const genres = await getAllGenres(fetch, locals);
 	const trending = await getTrendingMovies(fetch, locals);
-	return { upcomingMovies, genres, trending };
+	const topRatedMovies = await getTopRatedMovies(fetch, locals);
+	return { upcomingMovies, genres, trending, topRatedMovies };
 };
 
 const getAllUpComingMovies = async (fetch, locals) => {
@@ -17,7 +18,7 @@ const getAllUpComingMovies = async (fetch, locals) => {
 				Authorization: `Bearer ${locals.API_KEY}`
 			}
 		};
-		const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?page=10', options);
+		const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?page=1', options);
 		const data = await response.json();
 		return data.results;
 	} catch (err) {
@@ -58,6 +59,28 @@ const getTrendingMovies = async (fetch, locals) => {
 			options
 		);
 		const data = await response.json();
+		return data.results;
+	} catch (err) {
+		console.log(err);
+		return [];
+	}
+};
+
+const getTopRatedMovies = async (fetch, locals) => {
+	try {
+		const options = {
+			method: 'GET',
+			headers: {
+				accept: 'application/json',
+				Authorization: `Bearer ${locals.API_KEY}`
+			}
+		};
+		const response = await fetch(
+			'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1',
+			options
+		);
+		const data = await response.json();
+		console.log(data.results);
 		return data.results;
 	} catch (err) {
 		console.log(err);
