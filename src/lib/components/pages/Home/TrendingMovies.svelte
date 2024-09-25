@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { getGenresForMovie } from '$lib/utils/generate-genre-names';
 	// @ts-ignore
 	import Carousel from 'svelte-carousel';
@@ -52,8 +53,10 @@
 				/>
 			</svg>
 		</button>
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		{#each trending as Movie, index}
-			<div class="px-2 relative rounded-lg">
+			<div class="px-2 relative rounded-lg" on:click={() => goto(`/movies/${Movie.id}`)}>
 				<div class="absolute z-40 bottom-0 mx-4 mb-2">
 					<h3 class="font-extrabold">{Movie.title}</h3>
 					<div class="flex gap-3 text-xs opacity-60">

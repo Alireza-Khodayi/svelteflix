@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { Genre } from '$lib/components/interfaces/genres.interface';
 	import type { UpComingMovie } from '$lib/components/interfaces/upComingMovie.interface';
 	import { getGenresForMovie } from '$lib/utils/generate-genre-names';
@@ -122,8 +123,9 @@
 									<span class="text-sm">{getGenresForMovie(Movie, genres)}</span>
 								</div>
 								<div class="text-right px-4">
-									<button class="btn btn-xs sm:btn-sm md:btn-md btn-primary w-36"
-										>Show details...</button
+									<button
+										on:click={() => goto(`/movies/${Movie.id}`)}
+										class="btn btn-xs sm:btn-sm md:btn-md btn-primary w-36">Show details...</button
 									>
 								</div>
 							</div>

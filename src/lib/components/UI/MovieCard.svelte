@@ -1,4 +1,6 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	export let Movie;
 
 	import placeholder from '$lib/assets/placeholder.png';
@@ -9,6 +11,7 @@
 </script>
 
 <div
+	on:click={() => goto(`/movies/${Movie.id}`)}
 	class="bg-base-300 rounded-lg shadow-md max-w-[17rem] cursor-pointer transition-all overflow-hidden hover:scale-95 duration-300"
 >
 	<img
@@ -41,7 +44,7 @@
 						clip-rule="evenodd"
 					/>
 				</svg>
-				Language: {Movie.original_language}
+				Language: {Movie.original_language.toUpperCase()}
 			</span>
 		</div>
 		<div class="flex items-center mt-2 md:text-[15px] text-[13px]">
