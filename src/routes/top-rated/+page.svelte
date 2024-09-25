@@ -5,7 +5,7 @@
 	let topRatedMovies = data.topRatedMovies;
 </script>
 
-<div class="mt-20 container mx-auto w-full">
+<div class="mt-10 py-10 container mx-auto w-full">
 	<h2 class="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-center mb-5">
 		<span class="text-primary">Top Rated</span> Movies
 	</h2>

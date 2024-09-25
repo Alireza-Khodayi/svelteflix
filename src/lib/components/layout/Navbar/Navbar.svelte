@@ -7,7 +7,7 @@
 </script>
 
 <header
-	class="w-full border-b border-opacity-60 border-gray-400 bg-base-300 fixed top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10"
+	class="w-full border-b border-opacity-60 border-gray-400 bg-base-300 fixed top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-50"
 >
 	<ProgressBar class="text-primary" />
 	<div class="navbar container mx-auto">

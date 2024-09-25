@@ -48,7 +48,7 @@
 				</svg>
 			</button>
 			{#each upComingMovies as Movie}
-				<div class="relative w-full h-screen container mx-auto">
+				<div class="relative w-full h-[70vh] lg:h-screen container mx-auto">
 					<img
 						class="h-full sm:h-auto w-full object-cover blur-[1px]"
 						src={`https://image.tmdb.org/t/p/original${Movie.backdrop_path}`}

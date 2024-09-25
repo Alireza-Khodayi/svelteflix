@@ -38,7 +38,6 @@ const getTopRatedMovies = async (fetch, locals) => {
 			options
 		);
 		const data = await response.json();
-		console.log(data.results);
 		return data.results;
 	} catch (err) {
 		console.log(err);

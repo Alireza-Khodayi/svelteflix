@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.active-btn {
+		@apply active w-full border-opacity-60 border-primary bg-base-100 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10;
+	}
+	.active-btn svg {
+		@apply text-primary;
+	}
+	.active-btn span {
+		@apply text-primary;
+	}
+}

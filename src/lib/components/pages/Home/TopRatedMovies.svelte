@@ -16,7 +16,16 @@
 	}
 
 	let innerWidth = 0;
-	$: particlesToShow = innerWidth >= 1280 ? 6 : innerWidth >= 1024 ? 4 : innerWidth >= 768 ? 3 : 2;
+	$: particlesToShow =
+		innerWidth >= 1480
+			? 7
+			: innerWidth >= 1280
+				? 6
+				: innerWidth >= 1000
+					? 5
+					: innerWidth >= 768
+						? 4
+						: 3;
 </script>
 
 <svelte:window bind:innerWidth />
@@ -56,7 +65,7 @@
 			</svg>
 		</button>
 		{#each topRatedMovies as Movie, index}
-			<div class="mx-1"><MovieCard {Movie} /></div>
+			<MovieCard {Movie} />
 		{/each}
 		<button
 			slot="next"
