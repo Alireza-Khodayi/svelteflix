@@ -4,12 +4,12 @@
 
 @layer components {
 	.active-btn {
-		@apply active w-full border-opacity-60 border-primary bg-base-100 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10;
+		@apply active w-full border-opacity-60 border-secondary bg-base-100 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10;
 	}
 	.active-btn svg {
-		@apply text-primary;
+		@apply text-secondary;
 	}
 	.active-btn span {
-		@apply text-primary;
+		@apply text-secondary;
 	}
 }

@@ -1,1 +1,1 @@
-<main class=" w-full bg-base-300"><slot /></main>
+<main class=" w-full bg-base-100"><slot /></main>

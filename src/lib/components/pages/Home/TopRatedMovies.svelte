@@ -32,9 +32,16 @@
 <div class="container mx-auto w-full py-10 px-4">
 	<div class="flex items-center justify-between w-full mb-6">
 		<h3 class="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl cursor-pointer">
-			<span class="text-primary">Top Rated</span> Movies
+			<span
+				class="bg-clip-text text-transparent bg-gradient-to-tr from-primary to-secondary via-accent animate-gradient-xy"
+				>TopRated</span
+			> Movies
 		</h3>
-		<a href="/top-rated" class="btn btn-primary">Show All</a>
+		<a
+			href="/top-rated"
+			class="btn btn-primary bg-gradient-to-tr from-primary to-secondary via-accent animate-gradient-xy"
+			>Show All</a
+		>
 	</div>
 	<Carousel
 		bind:this={carousel}

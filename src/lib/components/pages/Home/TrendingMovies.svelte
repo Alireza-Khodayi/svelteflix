@@ -23,7 +23,10 @@
 <svelte:window bind:innerWidth />
 <div class="container mx-auto w-full py-10 px-4 cursor-pointer">
 	<h3 class="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl mb-5">
-		<span class="text-primary">Trending</span> Movies
+		<span
+			class="bg-clip-text text-transparent bg-gradient-to-tr from-primary to-secondary via-accent animate-gradient-xy"
+			>Trending</span
+		> Movies
 	</h3>
 	<Carousel
 		bind:this={carousel}

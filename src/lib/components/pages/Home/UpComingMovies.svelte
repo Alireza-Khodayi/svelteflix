@@ -105,7 +105,7 @@
 									<span class="text-sm">{Movie.release_date}</span>
 								</span>
 							</div>
-							<div class="flex flex-col sm:flex-row items-start justify-between">
+							<div class="flex flex-row items-start justify-between">
 								<div class="flex gap-1">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,8 @@
 								<div class="text-right px-4">
 									<button
 										on:click={() => goto(`/movies/${Movie.id}`)}
-										class="btn btn-xs sm:btn-sm md:btn-md btn-primary w-36">Show details...</button
+										class="btn btn-primary w-36 bg-gradient-to-tr from-primary to-secondary via-accent animate-gradient-xy"
+										>Show details...</button
 									>
 								</div>
 							</div>

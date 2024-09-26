@@ -2,33 +2,49 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			animation: {
+				'gradient-x': 'gradient-x 5s ease infinite',
+				'gradient-y': 'gradient-y 5s ease infinite',
+				'gradient-xy': 'gradient-xy 5s ease infinite'
+			},
+			keyframes: {
+				'gradient-y': {
+					'0%, 100%': {
+						'background-size': '400% 400%',
+						'background-position': 'center top'
+					},
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'center center'
+					}
+				},
+				'gradient-x': {
+					'0%, 100%': {
+						'background-size': '200% 200%',
+						'background-position': 'left center'
+					},
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
+					}
+				},
+				'gradient-xy': {
+					'0%, 100%': {
+						'background-size': '400% 400%',
+						'background-position': 'left center'
+					},
+					'50%': {
+						'background-size': '200% 200%',
+						'background-position': 'right center'
+					}
+				}
+			}
+		}
 	},
 	// eslint-disable-next-line @typescript-eslint/no-require-imports
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: [
-			{
-				mytheme: {
-					primary: '#fb923c',
-
-					secondary: '#4ade80',
-
-					accent: '#d1d5db',
-
-					neutral: '#292524',
-
-					'base-100': '#1c1917',
-
-					info: '#22d3ee',
-
-					success: '#4ade80',
-
-					warning: '#fde047',
-
-					error: '#f87171'
-				}
-			}
-		]
+		themes: ['forest']
 	}
 };
