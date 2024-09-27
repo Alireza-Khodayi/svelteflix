@@ -18,7 +18,7 @@
 						alt={`${Movie.title} Poster`}
 						class="md:w-[200px] sm:w-[150px] w-[100px] h-auto rounded-md transition-transform duration-500 hover:-rotate-1 hover:scale-105"
 					/>
-					<div>
+					<div class="max-w-[450px]">
 						<div class="flex flex-col justify-center font-semibold gap-2 mb-3">
 							<h1 class="text-2xl font-bold text-white">{Movie.title}</h1>
 							<p class="text-zinc-400 md:text-lg lg:text-xl">{Movie.tagline}</p>
@@ -55,7 +55,7 @@
 							<span class="flex flex-col justify-center items-center gap-1"
 								><span class="text-sm"> Country</span>
 								<span class="text-white font-semibol line-clamp-1"
-									>{Movie.production_countries[0].name.includes('America')
+									>{Movie.production_countries[0]?.name.includes('America')
 										? 'USA'
 										: Movie.production_countries[0].name}</span
 								>
