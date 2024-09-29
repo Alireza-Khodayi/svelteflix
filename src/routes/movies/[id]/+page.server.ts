@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch, locals, params }) => {
@@ -9,7 +10,7 @@ export const load: PageServerLoad = async ({ fetch, locals, params }) => {
 	return { movie, similarMovies, movieTrailers, movieCredit };
 };
 
-const getMovieById = async (fetch, locals, params) => {
+const getMovieById = async (fetch: any, locals: any, params: any) => {
 	try {
 		const options = {
 			method: 'GET',
@@ -27,7 +28,7 @@ const getMovieById = async (fetch, locals, params) => {
 	}
 };
 
-const getSimilarMovies = async (fetch, locals, params) => {
+const getSimilarMovies = async (fetch: any, locals: any, params: any) => {
 	try {
 		const options = {
 			method: 'GET',
@@ -48,7 +49,7 @@ const getSimilarMovies = async (fetch, locals, params) => {
 	}
 };
 
-const getMovieTrailers = async (fetch, locals, params) => {
+const getMovieTrailers = async (fetch: any, locals: any, params: any) => {
 	try {
 		const options = {
 			method: 'GET',
@@ -66,7 +67,7 @@ const getMovieTrailers = async (fetch, locals, params) => {
 	}
 };
 
-const getMovieCredit = async (fetch, locals, params) => {
+const getMovieCredit = async (fetch: any, locals: any, params: any) => {
 	try {
 		const options = {
 			method: 'GET',

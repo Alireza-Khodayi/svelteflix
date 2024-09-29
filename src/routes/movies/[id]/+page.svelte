@@ -8,11 +8,14 @@
 
 	export let data;
 	$: Movie = data.movie;
-	let SimilarMovies = data.similarMovies;
+	$: SimilarMovies = data.similarMovies;
 	let MovieTrailers = data.movieTrailers;
-	let MovieCredit = data.movieCredit;
+	$: MovieCredit = data.movieCredit;
 </script>
 
+<svelte:head>
+	<title>SvelteFlix | {Movie.title}</title>
+</svelte:head>
 {#if browser}
 	<MovieHeroSection {Movie} />
 	<MovieOverviewSection {Movie} />

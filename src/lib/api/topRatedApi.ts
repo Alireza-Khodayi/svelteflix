@@ -1,5 +1,8 @@
+import { topRatedMoviesLoading } from '$lib/store/store';
+
 export const getTopRatedMovies = async (page: number = 1) => {
 	try {
+		topRatedMoviesLoading.set(true);
 		const options = {
 			method: 'GET',
 			headers: {
@@ -12,8 +15,10 @@ export const getTopRatedMovies = async (page: number = 1) => {
 			options
 		);
 		const data = await response.json();
+		topRatedMoviesLoading.set(false);
 		return data.results;
 	} catch (err) {
+		topRatedMoviesLoading.set(false);
 		console.log(err);
 		return [];
 	}

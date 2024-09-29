@@ -11,6 +11,10 @@
 	let topRatedMovies = data.topRatedMovies;
 </script>
 
+<svelte:head>
+	<title>SvelteFlix | Home</title>
+</svelte:head>
+
 {#if browser}
 	<UpComingMovies {upComingMovies} {genres} />
 	<TrendingMovies {trending} {genres} />

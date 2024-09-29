@@ -1,5 +1,8 @@
+import { moviesByGenreLoading } from '$lib/store/store';
+
 export const getGenreMoviesById = async (page: number = 1, id: string) => {
 	try {
+		moviesByGenreLoading.set(true);
 		const options = {
 			method: 'GET',
 			headers: {
@@ -12,8 +15,10 @@ export const getGenreMoviesById = async (page: number = 1, id: string) => {
 			options
 		);
 		const data = await response.json();
+		moviesByGenreLoading.set(false);
 		return data.results;
 	} catch (err) {
+		moviesByGenreLoading.set(false);
 		console.log(err);
 		return [];
 	}

@@ -15,6 +15,7 @@
 	let innerWidth = 0;
 	$: particlesToShow =
 		innerWidth >= 1480
+			? 7
 			: innerWidth >= 1280
 				? 6
 				: innerWidth >= 1000

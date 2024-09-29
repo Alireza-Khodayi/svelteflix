@@ -1,11 +1,8 @@
-import { getGenreMoviesById } from '$lib/api/genresApi';
 import type { Genre } from '$lib/components/interfaces/genres.interface';
 import type { PageServerLoad } from './$types';
-export const load: PageServerLoad = async ({ fetch, locals, params }) => {
-	const Genres = await getAllGenres(fetch, locals);
-	const Genre = Genres.filter((genre: Genre) => genre.id === Number(params.id))[0];
-	const Movies = await getGenreMoviesById(1, Genre.id);
-	return { Movies, Genre };
+export const load: PageServerLoad = async ({ fetch, locals }) => {
+	const Genres: Genre[] = await getAllGenres(fetch, locals);
+	return { Genres };
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

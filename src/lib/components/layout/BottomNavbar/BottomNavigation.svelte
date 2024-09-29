@@ -10,7 +10,7 @@
 	<button class:active-btn={routeId === '/'} on:click={() => goto('/')}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="h-5 w-5"
+			class="size-5"
 			fill="none"
 			viewBox="0 0 24 24"
 			stroke="currentColor"
@@ -31,7 +31,7 @@
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
 			stroke="currentColor"
-			class="size-6"
+			class="size-5"
 		>
 			<path
 				stroke-linecap="round"
@@ -42,23 +42,23 @@
 
 		<span class="btm-nav-label">Top Rated</span>
 	</button>
-	<button class:active-btn={routeId === '/search'} on:click={() => goto('/search')}>
+	<button class:active-btn={routeId === '/movies/genres'} on:click={() => goto('/movies/genres')}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
 			stroke="currentColor"
-			class="size-6"
+			class="size-5"
 		>
 			<path
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+				d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
 			/>
 		</svg>
 
-		<span class="btm-nav-label">Search</span>
+		<span class="btm-nav-label">Genres</span>
 	</button>
 	<button class:active-btn={routeId === '/dashboard'} on:click={() => goto('/dashboard')}>
 		<svg
@@ -67,7 +67,7 @@
 			viewBox="0 0 24 24"
 			stroke-width="1.5"
 			stroke="currentColor"
-			class="size-6"
+			class="size-5"
 		>
 			<path
 				stroke-linecap="round"

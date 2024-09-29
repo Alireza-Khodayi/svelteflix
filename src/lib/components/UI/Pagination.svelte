@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { moviesByGenrePage } from '$lib/store/store';
 	import { onMount } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	export let paginationType;
 	export let pageStore: Writable<number>;
-	let totalPages = 15;
+	let totalPages = 30;
 	let visiblePages = 5;
 	let pages = [];
 	$: currentPage = $paginationType;
