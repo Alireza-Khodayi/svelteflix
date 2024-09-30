@@ -5,28 +5,34 @@
 	export let Movie;
 
 	$: imageLoaded = false;
-
+	$: Poster = Movie.poster_path;
+	$: Backdrop = Movie.backdrop_path;
+	$: if (Poster || Backdrop) {
+		imageLoaded = false; // Reset to false when the poster_path changes
+	}
 	function handleLoad() {
-		console.log('loaded');
 		imageLoaded = true; // Set to true when the image loads
 	}
 	function handleImageError(event) {
-		console.log('error');
 		imageLoaded = true;
 		event.target.src = placeholder;
 	}
-	beforeNavigate(() => {
-		imageLoaded = false;
-	});
 </script>
 
 <div class="flex flex-col gap-8">
 	<div class="relative w-full overflow-hidden">
 		<div class="relative w-full h-[70vh] lg:h-[60vh] xl:h-[70vh]">
+			{#if !imageLoaded}
+				<div class="skeleton w-full h-full lg:h-auto min-h-[300px]"></div>
+				<!-- Skeleton loader -->
+			{/if}
 			<img
 				class="w-full h-full lg:h-auto min-h-[300px] object-cover brightness-50"
 				src={`https://image.tmdb.org/t/p/original${Movie.backdrop_path}`}
 				alt="Poster"
+				on:error={handleImageError}
+				on:load={handleLoad}
+				style:display={imageLoaded ? 'block' : 'none'}
 			/>
 			<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
 			<div class="absolute bottom-0 left-0 sm:flex gap-4 px-4 mt-40 w-full">
@@ -80,9 +86,9 @@
 							<span class="flex flex-col justify-center items-center gap-1"
 								><span class="text-sm"> Country</span>
 								<span class="text-white font-semibol line-clamp-1"
-									>{Movie.production_countries[0]?.name.includes('America')
+									>{Movie?.production_countries[0]?.name.includes('America')
 										? 'USA'
-										: Movie.production_countries[0]?.name}</span
+										: Movie.production_countries[0].name}</span
 								>
 							</span>
 						</div>

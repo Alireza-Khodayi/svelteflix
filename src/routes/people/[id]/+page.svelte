@@ -7,7 +7,7 @@
 
 	export let data;
 	let Person = data.person;
-	let Casts = data.credits.cast;
+	let Cast = data.credits.cast;
 
 	$: imageLoaded = false;
 
@@ -48,7 +48,7 @@
 					{Person.name}
 				</h1>
 				<BiographySection {Person} />
-				<KnownForSection {Casts} />
+				<KnownForSection {Cast} />
 			</div>
 		</div>
 	</div>

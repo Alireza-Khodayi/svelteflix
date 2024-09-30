@@ -72,7 +72,7 @@
 			</svg>
 		</button>
 		{#each topRatedMovies as Movie, index}
-			<MovieCard {Movie} />
+			<MovieCard Data={Movie} />
 		{/each}
 		<button
 			slot="next"

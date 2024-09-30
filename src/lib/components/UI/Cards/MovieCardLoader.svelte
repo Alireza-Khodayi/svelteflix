@@ -11,8 +11,7 @@
 		</div>
 		<div class="p-4 space-y-2">
 			<div class="h-4 skeleton w-full"></div>
-			<div class="h-4 skeleton w-5/6"></div>
-			<div class="h-4 skeleton w-5/12"></div>
+			<div class="h-4 skeleton w-2/4"></div>
 		</div>
 	</div>
 {/each}
