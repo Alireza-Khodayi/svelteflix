@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="btm-nav w-full border-b border-opacity-60 border-gray-400 bg-base-300 fixed bottom-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-80 md:hidden"
+	class="btm-nav w-full border-t border-opacity-60 border-gray-400 bg-base-300 fixed bottom-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-80 md:hidden"
 >
 	<button class:active-btn={routeId === '/'} on:click={() => goto('/')}>
 		<svg
@@ -23,6 +23,24 @@
 			/>
 		</svg>
 		<span class="btm-nav-label">Home</span>
+	</button>
+	<button class:active-btn={routeId === '/explore'} on:click={() => goto('/explore')}>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="size-5"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+			/>
+		</svg>
+
+		<span class="btm-nav-label">Explore</span>
 	</button>
 	<button class:active-btn={routeId === '/top-rated'} on:click={() => goto('/top-rated')}>
 		<svg
@@ -59,23 +77,5 @@
 		</svg>
 
 		<span class="btm-nav-label">Genres</span>
-	</button>
-	<button class:active-btn={routeId === '/dashboard'} on:click={() => goto('/dashboard')}>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			class="size-5"
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-			/>
-		</svg>
-
-		<span class="btm-nav-label">Dashboard</span>
 	</button>
 </div>

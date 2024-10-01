@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MovieCard from '$lib/components/UI/MovieCard.svelte';
+	import MovieCard from '$lib/components/UI/Cards/MovieCard.svelte';
 	import MovieCardsCarousel from '$lib/components/UI/Swiper/CardsCarousel.svelte';
 	export let Cast;
 </script>

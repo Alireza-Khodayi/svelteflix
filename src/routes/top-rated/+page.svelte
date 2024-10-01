@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getTopRatedMovies } from '$lib/api/topRatedApi';
-	import MoviesGridView from '$lib/components/UI/MoviesGridView.svelte';
+	import MovieCard from '$lib/components/UI/Cards/MovieCard.svelte';
+	import GridView from '$lib/components/UI/GridView.svelte';
 	import Pagination from '$lib/components/UI/Pagination.svelte';
 	import { topRatedMoviesLoading, topRatedMoviesPage } from '$lib/store/store.js';
 	import { onDestroy, onMount } from 'svelte';
@@ -25,7 +26,12 @@
 </script>
 
 <div bind:this={topOfPage}></div>
-<MoviesGridView SectionTitle={'Top Rated Movies'} {Movies} LoadingState={topRatedMoviesLoading} />
+<GridView
+	SectionTitle={'Top Rated Movies'}
+	DataList={Movies}
+	LoadingState={topRatedMoviesLoading}
+	Item={MovieCard}
+/>
 <div class="flex items-center justify-center pb-5">
 	<Pagination paginationType={topRatedMoviesPage} pageStore={topRatedMoviesPage} />
 </div>

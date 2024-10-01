@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getGenreMoviesById } from '$lib/api/genresApi';
-	import MoviesGridView from '$lib/components/UI/MoviesGridView.svelte';
+	import MovieCard from '$lib/components/UI/Cards/MovieCard.svelte';
+	import MoviesGridView from '$lib/components/UI/GridView.svelte';
 	import Pagination from '$lib/components/UI/Pagination.svelte';
 	import { moviesByGenreLoading, moviesByGenrePage } from '$lib/store/store.js';
 	import { onDestroy, onMount } from 'svelte';
@@ -28,7 +29,12 @@
 	<title>SvelteFlix | {Genre.name}</title>
 </svelte:head>
 <div bind:this={topOfPage} class="mt-10"></div>
-<MoviesGridView SectionTitle={`${Genre.name}`} {Movies} LoadingState={moviesByGenreLoading} />
+<MoviesGridView
+	SectionTitle={`${Genre.name}`}
+	DataList={Movies}
+	Item={MovieCard}
+	LoadingState={moviesByGenreLoading}
+/>
 <div class="flex items-center justify-center pb-5">
 	<Pagination paginationType={moviesByGenrePage} pageStore={moviesByGenrePage} />
 </div>
