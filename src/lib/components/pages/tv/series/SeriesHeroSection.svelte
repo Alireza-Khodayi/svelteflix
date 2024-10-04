@@ -1,6 +1,7 @@
 <script>
 	import HeroSectionBackdropImage from '$lib/components/UI/Images/HeroSectionBackdropImage.svelte';
 	import PosterImage from '$lib/components/UI/Images/PosterImage.svelte';
+	import { getCountryName } from '$lib/utils/get-country-name';
 
 	export let Series;
 </script>
@@ -53,11 +54,7 @@
 							</span>
 							<span class="flex flex-col justify-center items-center gap-1">
 								<span class="text-sm">Country</span>
-								<span class="text-white font-semibold"
-									>{Series.production_countries[0]?.name.includes('America')
-										? 'USA'
-										: Series.production_countries[0].name}</span
-								>
+								<span class="text-white font-semibold">{getCountryName(Series)}</span>
 							</span>
 						</div>
 					</div>

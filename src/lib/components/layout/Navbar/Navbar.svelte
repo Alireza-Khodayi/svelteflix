@@ -7,10 +7,10 @@
 </script>
 
 <header
-	class="w-full border-b border-opacity-60 border-gray-400 bg-base-300 fixed top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-50"
+	class="w-full fixed top-0 z-50 border-opacity-60 border-b border-gray-400 bg-base-300 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-50"
 >
 	<ProgressBar class="text-secondary" />
-	<div class="navbar container mx-auto">
+	<div class="navbar container mx-auto relative">
 		<div class="navbar-start gap-2">
 			<DropDownMenu />
 			<Logo />

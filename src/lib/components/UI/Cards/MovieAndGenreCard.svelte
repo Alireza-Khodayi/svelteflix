@@ -1,5 +1,6 @@
 <script>
 	import { getGenresForMovie } from '$lib/utils/generate-genre-names';
+	import HeroSectionBackdropImage from '../Images/HeroSectionBackdropImage.svelte';
 	export let Data;
 	export let AditionalData;
 	$: Movie = Data;
@@ -28,10 +29,9 @@
 		<div
 			class="absolute z-30 inset-0 bg-gradient-to-t opacity-100 from-black to-transparent rounded-lg mx-2 transition-all duration-500 ease-in-out transform hover:opacity-65"
 		></div>
-		<img
-			class="w-full h-auto object-cover rounded-lg"
-			src={`https://image.tmdb.org/t/p/original${Movie.backdrop_path}`}
-			alt={Movie.title}
+		<HeroSectionBackdropImage
+			Backdrop={Movie.backdrop_path}
+			Style="w-full h-auto object-cover rounded-lg max-h-52"
 		/>
 	</div>
 </a>

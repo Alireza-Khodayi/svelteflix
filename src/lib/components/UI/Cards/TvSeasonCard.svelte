@@ -4,13 +4,16 @@
 	export let Data;
 </script>
 
-<div class="card card-side my-4">
+<div class="card card-side my-4 flex-col sm:flex-row">
 	<figure class="overflow-visible">
 		<PosterImage Poster={Data.poster_path} alt={Data.name} />
 	</figure>
 	<div class="card-body">
 		<div class="flex flex-col gap-3">
-			<h2 class="card-title">{Data.name} ({Data.air_date?.split('-')[0]})</h2>
+			<h2 class="card-title">
+				{Data.name}
+				{Data.air_date ? `(${Data.air_date?.split('-')[0]})` : ''}
+			</h2>
 			<p class="text-zinc-500">{Data.episode_count} Episodes</p>
 			<p class="text-amber-500 font-semibold flex gap-1 items-center">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff9955" class="size-5">

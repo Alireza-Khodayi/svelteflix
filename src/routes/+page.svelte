@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import TopRatedMovies from '$lib/components/pages/home/TopRatedMovies.svelte';
-	import TrendingMovies from '$lib/components/pages/home/TrendingMovies.svelte';
-	import UpComingMovies from '$lib/components/pages/home/UpComingMovies.svelte';
+	import TopRatedMovies from '$lib/components/pages/Home/TopRatedMovies.svelte';
+	import TrendingMovies from '$lib/components/pages/Home/TrendingMovies.svelte';
+	import UpComingMovies from '$lib/components/pages/Home/UpComingMovies.svelte';
 
 	export let data;
 	let upComingMovies = data.upcomingMovies;

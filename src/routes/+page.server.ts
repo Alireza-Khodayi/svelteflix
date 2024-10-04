@@ -55,7 +55,7 @@ const getTrendingMovies = async (fetch, locals) => {
 			}
 		};
 		const response = await fetch(
-			'https://api.themoviedb.org/3/trending/movie/week?language=en-US',
+			'https://api.themoviedb.org/3/trending/movie/day?language=en-US',
 			options
 		);
 		const data = await response.json();

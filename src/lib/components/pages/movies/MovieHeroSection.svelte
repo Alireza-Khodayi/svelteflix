@@ -2,22 +2,9 @@
 	import placeholder from '$lib/assets/placeholder.png';
 	import HeroSectionBackdropImage from '$lib/components/UI/Images/HeroSectionBackdropImage.svelte';
 	import PosterImage from '$lib/components/UI/Images/PosterImage.svelte';
+	import { getCountryName } from '$lib/utils/get-country-name';
 
 	export let Movie;
-
-	$: imageLoaded = false;
-	$: Poster = Movie.poster_path;
-	$: Backdrop = Movie.backdrop_path;
-	$: if (Poster || Backdrop) {
-		imageLoaded = false; // Reset to false when the poster_path changes
-	}
-	function handleLoad() {
-		imageLoaded = true; // Set to true when the image loads
-	}
-	function handleImageError(event) {
-		imageLoaded = true;
-		event.target.src = placeholder;
-	}
 </script>
 
 <div class="flex flex-col gap-8">
@@ -30,8 +17,12 @@
 					<PosterImage Poster={Movie.poster_path} alt={Movie.name} />
 					<div class="max-w-[450px]">
 						<div class="flex flex-col justify-center font-semibold gap-2 mb-3">
-							<h1 class="text-2xl font-bold text-white">{Movie?.title}</h1>
-							<p class="text-zinc-400 md:text-lg lg:text-xl">{Movie?.tagline}</p>
+							<h1 class="text-2xl font-bold text-white">
+								{Movie.title ? Movie.title : 'Unkown movie'}
+							</h1>
+							<p class="text-zinc-400 md:text-lg lg:text-xl">
+								{Movie.tagline ? Movie.tagline : '-'}
+							</p>
 						</div>
 						<div
 							class="md:min-w-96 flex gap-2 justify-between rounded-md p-4 border border-gray-700 border-opacity-30 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-30 hover:bg-opacity-50 bg-base-300"
@@ -50,25 +41,25 @@
 											d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
 											clip-rule="evenodd"
 										/>
-									</svg>{Movie.vote_average?.toFixed(2)}</span
+									</svg>{Movie.vote_average ? Movie.vote_average?.toFixed(2) : '0.0'}</span
 								>
 							</span>
 							<span class="flex flex-col justify-center items-center gap-1">
 								<span class="text-sm">Year</span>
-								<span class="text-white font-semibold">{Movie.release_date?.split('-')[0]}</span>
+								<span class="text-white font-semibold"
+									>{Movie.release_date ? Movie.release_date?.split('-')[0] : '-'}</span
+								>
 							</span>
 							<span class="flex flex-col justify-center items-center gap-1"
 								><span class="text-sm">Runtime</span>
-								<span class="text-white font-semibold line-clamp-1">{Movie.runtime} Min</span>
+								<span class="text-white font-semibold line-clamp-1"
+									>{Movie.runtime ? `${Movie.runtime} min` : '-'}</span
+								>
 							</span>
 
 							<span class="flex flex-col justify-center items-center gap-1"
 								><span class="text-sm"> Country</span>
-								<span class="text-white font-semibol line-clamp-1"
-									>{Movie?.production_countries[0]?.name.includes('America')
-										? 'USA'
-										: Movie.production_countries[0].name}</span
-								>
+								<span class="text-white font-semibol line-clamp-1">{getCountryName(Movie)}</span>
 							</span>
 						</div>
 					</div>
